@@ -1,22 +1,22 @@
 class Triangle
-  attr_accessor :side_a, :side_b, :side_c
+  attr_accessor :a, :b, :c
 
-  def initialize(side_a, side_b, side_c)
-    @side_a = side_a
-    @side_b = side_b
-    @side_c = side_c
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
   def kind
-    sum1 = self.side_a + self.side_b
-    sum2 = self.side_b + self.side_c
-    sum3 = self.side_a + self.side_c
+    sum1 = self.a + self.b
+    sum2 = self.b + self.c
+    sum3 = self.a + self.c
 
-    if (self.side_a <= 0 || self.side_b <= 0 || self.side_c <= 0 || sum1 <= self.side_c || sum2 <= self.side_a || sum3 <= self.side_b)
+    if (self.a <= 0 || self.b <= 0 || self.c <= 0 || sum1 <= self.c || sum2 <= self.a || sum3 <= self.b)
       raise TriangleError
-    elsif (self.side_a == self.side_b && self.side_b == self.side_c && self.side_a != 0)
+    elsif (self.a == self.b && self.b == self.c && self.a != 0)
       return :equilateral
-    elsif (self.side_a == self.side_b || self.side_a == self.side_c || self.side_b == self.side_c)
+    elsif (self.a == self.b || self.a == self.c || self.b == self.c)
       return :isosceles
     else
       return :scalene
